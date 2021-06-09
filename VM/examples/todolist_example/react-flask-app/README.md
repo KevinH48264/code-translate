@@ -72,9 +72,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Usage
 
-Run the backend server: 'flask run'
+Open 2 terminals, and run the following commands in each:  
+Run the frontend server: 'yarn start'  
+Run the backend server: 'yarn start-server'  
 
-To activate virtual environment
+To activate the virtual environment
 ```bash
 cd VM
 venv\Scripts\activate # for Windows
