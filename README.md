@@ -18,7 +18,6 @@ Run the backend server: 'yarn start-server'
 
 ### Deploy to Heroku
 ```bash
-cd frontend # navigate to frontend
 npm run build # create the build file
 
 git add .
@@ -36,7 +35,7 @@ Set up
 
 ## File Structure
 ```bash
-code-translate
+code-translate # Heroku requires package.json to be in the root directory. This ideal file structure does not work.
 |__frontend
     |__build
     |__public
