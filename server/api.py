@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory
 import time
 
-app = Flask(__name__, static_folder='build/', template_folder="build", static_url_path='/')
+app = Flask(__name__, static_folder='../build/', template_folder="build", static_url_path='/')
 
 @app.route('/', methods=['GET'])
 @app.route('/home')
