@@ -18,7 +18,9 @@ Run the backend server: 'yarn start-server'
 
 ### Deploy to Heroku
 ```bash
+cd frontend # navigate to frontend
 npm run build # create the build file
+
 git add .
 git commit -m <message>
 git push heroku main # push main to heroku
@@ -37,11 +39,11 @@ Set up
 code-translate
 |__frontend
     |__build
-    |__node_modules
     |__public
     |__scripts
     |__src
     |__package.json
+    |__node_modules
     |__yarn.lock
 |__server
 |__examples
@@ -50,4 +52,5 @@ code-translate
 Procfile
 README.md
 requirements.txt
+app.py
 ```
