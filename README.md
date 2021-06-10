@@ -29,7 +29,7 @@ Both automatically update upon saved changes to relevant files.
 npm run build # create the build file
 
 heroku login # sign into heroku
-heroku git:remote -a codetranslateapp # codetranslateapp is the dev server, code-translate-app is the production server
+heroku git:remote -a codetranslateapp # codetranslateapp is the dev server, code-translate-app / code-translate is the production server
 
 git add .
 git commit -m <message>

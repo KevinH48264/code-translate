@@ -45,9 +45,10 @@ const TranslateBox = () => {
                     </TranslateBoxSub>
                     <TranslateBoxDivider />
                     <TranslateBoxSub>
-                        <p>Code translation</p>
+                        {/* <p>Code translation</p> */}
                         {/* <p>System.out.println("Hello World");</p> */}
                         {/* <p>You selected to translate to {tTo}.</p> */}
+                        <p>This language is not currently supported. Please check back later this month. Thanks for visiting!</p>
                     </TranslateBoxSub>
                 </TranslateBoxBar>
             </TranslateBoxInner>
