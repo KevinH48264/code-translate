@@ -13,7 +13,7 @@ deactivate # to deactivate
 # Run and develop app locally, use 2 terminals
 cd code-translate
 yarn start # start frontend
-yarn start-server # start server, runs 'flask run' OR for debugger, run 'python app.py'
+yarn start-server # start server, runs 'python app.py'
 ```
 
 

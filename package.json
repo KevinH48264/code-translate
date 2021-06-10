@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-server": "flask run",
+    "start-server": "python app.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
