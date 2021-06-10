@@ -31,3 +31,23 @@ Set up
 - Need to transfer react-flask-app to main VM directory
 - Need to merge github repo with heroku git repo
 - Create a frontend folder to put all the src folders in, or rename src to frontend
+
+## File Structure
+```bash
+code-translate
+|__frontend
+    |__build
+    |__node_modules
+    |__public
+    |__scripts
+    |__src
+    |__package.json
+    |__yarn.lock
+|__server
+|__examples
+|__venv
+.gitignore
+Procfile
+README.md
+requirements.txt
+```
