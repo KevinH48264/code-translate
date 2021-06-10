@@ -1,7 +1,8 @@
 from flask import Flask, send_from_directory
+import os
 import time
 
-app = Flask(__name__, static_folder='../build/', template_folder="build", static_url_path='/')
+app = Flask(__name__, static_folder='build/', template_folder="build", static_url_path='/')
 
 @app.route('/', methods=['GET'])
 @app.route('/home')
@@ -15,3 +16,6 @@ def get_current_time():
 @app.errorhandler(404)
 def not_found(e): # to prevent the server from returning 404 no found error
     return app.send_static_file('index.html')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
