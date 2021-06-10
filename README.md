@@ -21,7 +21,8 @@ Run the backend server: 'yarn start-server'
 npm run build # create the build file
 git add .
 git commit -m <message>
-git push heroku <branchname>:main
+git push heroku main # push main to heroku
+git push heroku <branchname>:main # push a branch to heroku
 ```
 
 
