@@ -7,14 +7,16 @@ To activate virtual environment
 ```bash
 cd code-translate
 venv\Scripts\activate # for Windows
+
+deactivate # to deactivate
 ```
 
 
 ### Run React and Flask App Locally
 Open 2 terminals, and run the following commands in each:  
 Run the frontend server: 'yarn start'  
-Run the backend server: 'yarn start-server'  
-
+Run the backend server: 'yarn start-server' or 'flask run'  
+Both automatically update upon saved changes to relevant files.
 
 ### Deploy to Heroku
 ```bash
@@ -26,12 +28,6 @@ git push heroku main # push main to heroku
 git push heroku <branchname>:main # push a branch to heroku
 ```
 
-
-## TO DO
-Set up
-- Need to transfer react-flask-app to main VM directory
-- Need to merge github repo with heroku git repo
-- Create a frontend folder to put all the src folders in, or rename src to frontend
 
 ## File Structure
 ```bash
