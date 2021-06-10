@@ -58,6 +58,7 @@ export const TranslateBoxOptionBox = styled.div`
     height: 100%;
     justify-content: flex-start; 
     align-items: center; 
+    text-transform: uppercase;
     /* border: 1px solid black; */
 `
 
@@ -70,11 +71,25 @@ export const TranslateBoxOption = styled.button`
     display: flex;
     width: 125px;
     height: 100%;
-    justify-content: center; 
+    justify-content: space-between; 
     align-items: center; 
     border: none;
     font-size: 20px; 
     font-weight: bold;
-    color: black;
     background-color: white;
+    cursor: pointer;
+    color: ${props => (props.selected ? '#1A73E8' : 'black')};
+    flex-direction: column;
+`
+
+export const TranslateBoxUnderline = styled.span`
+    width: 115px;
+    height: 5px;
+    background-color: ${props => (props.selected ? '#1A73E8' : '')};
+`
+
+export const TranslateBoxLineHolder = styled.span`
+    width: 115px;
+    height: 5px;
+    background-color: ''
 `

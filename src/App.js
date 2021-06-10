@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Translate from './containers/Translate';
 
 const App = () => (
