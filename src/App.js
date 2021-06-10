@@ -17,8 +17,9 @@ function App() {
         <h1>
           Code Translate
         </h1>
-        <p>This website is still under development. Thanks for visiting! :)</p>
-        {/* <p>The current time is {currentTime}.</p> */}
+        <p>This website is still under development. Please check back later this month.</p>
+        <p>Thanks for visiting! :)</p>
+        <p>The current time is {currentTime}.</p>
       </header>
     </div>
   );
