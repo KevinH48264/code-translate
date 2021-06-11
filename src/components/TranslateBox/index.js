@@ -23,6 +23,8 @@ const TranslateBox = () => {
             console.log(res)
             if (res.outputCode) {
                 setOutputCode(res.outputCode)
+            } else {
+                setOutputCode(res.message)
             }
         }).catch((err) => {
             console.log('Error:', err)

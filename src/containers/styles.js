@@ -6,5 +6,5 @@ export const Font = styled.div`
      /* font-family: 'Montserrat', sans-serif; */
      font-family: 'sans-serif';
      font-weight: 'bold';
-     white-space: break-spaces; // allow for \n and \t to work
+     white-space: pre-wrap; // allow for \n and \t to work, or break spaces
 `

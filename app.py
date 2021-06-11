@@ -36,7 +36,7 @@ def translate():
             tTo = data['tTo']
             tFrom = data['tFrom']
             inputCode = data['inputCode']
-            
+
             print("inputCode: ", inputCode)
             print("...Creating input file ...")
             inputFile = createInputFile(inputCode, tFrom) # create input file
@@ -48,9 +48,8 @@ def translate():
             outputCode = readOutputFile(outputFile) # convert outputfile to output code
             print("outputCode: ", outputCode)
 
-            print("SUCCESS")
-            return jsonify(**{'message': "SUCCESS", 'outputCode': outputCode})
-        return jsonify(**{'message': "This code translation cannot be currently supported."})
+            return jsonify(**{'message': "Success", 'outputCode': outputCode})
+        return jsonify(**{'message': "This code translation is not currently supported."})
     except:
         print(request)
         return jsonify(**{'message': 'Translation was unsupported. :('})

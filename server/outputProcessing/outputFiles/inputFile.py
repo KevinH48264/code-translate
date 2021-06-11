@@ -1,3 +1,1 @@
-print("HELLOW")
-print("HELLOW")
-print("HELLOW")
+YES!
