@@ -1,5 +1,8 @@
 from flask import Flask, send_from_directory, request, jsonify
 from flask_cors import CORS
+from server.inputProcessing.inputProcessing import createInputFile
+from server.python2java.python2java import python2java
+from server.outputProcessing.outputProcessing import readOutputFile
 import os
 
 app = Flask(__name__, static_folder='build/', template_folder="build", static_url_path='/')
@@ -13,7 +16,6 @@ class Code():
         self.language = language
 
 @app.route('/', methods=['GET'])
-@app.route('/home')
 def home():
     return app.send_static_file('index.html')
 
@@ -21,6 +23,7 @@ def home():
 def not_found(e): # to prevent the server from returning 404 no found error
     return app.send_static_file('index.html')
 
+# example data: {'tTo': 'python', 'tFrom': 'java', 'inputCode': 'print("Hello world!")'}
 @app.route('/translate', methods=['POST'])
 def translate():
     try:
@@ -30,18 +33,27 @@ def translate():
         print(data)
 
         if data:
-            # code = Code(text=request.form['inputCode'], language)
-            # return '<p>{}<p>'.format(data['inputCode'])
-            return jsonify(**{'message': "SUCCESS", 'outputCode': 'Currently translating...'})
+            tTo = data['tTo']
+            tFrom = data['tFrom']
+            inputCode = data['inputCode']
+            
+            print("inputCode: ", inputCode)
+            print("...Creating input file ...")
+            inputFile = createInputFile(inputCode, tFrom) # create input file
+
+            if tFrom == 'python' and tTo == 'java':
+                print("...Creating output file...")
+                outputFile = python2java(inputFile)
+
+            outputCode = readOutputFile(outputFile) # convert outputfile to output code
+            print("outputCode: ", outputCode)
+
+            print("SUCCESS")
+            return jsonify(**{'message': "SUCCESS", 'outputCode': outputCode})
         return jsonify(**{'message': "This code translation cannot be currently supported."})
     except:
         print(request)
         return jsonify(**{'message': 'Translation was unsupported. :('})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=False, use_reloader=False, port=os.environ.get('PORT', 5000))
-    
-# Example of how to jsonify many attributes
-# return jsonify(**{'port_number': api_port_number,
-#                 'api_name': api_name,
-#                 'app_uuid': str(app_uuid)})
+    app.run(host='0.0.0.0', debug=True, use_reloader=True, port=os.environ.get('PORT', 5000))

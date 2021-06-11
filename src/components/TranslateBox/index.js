@@ -4,8 +4,8 @@ import {
 } from './styles'
 
 const TranslateBox = () => {
-    const [tFrom, setTFrom] = useState('java')
-    const [tTo, setTTo] = useState('python')
+    const [tFrom, setTFrom] = useState('python')
+    const [tTo, setTTo] = useState('java')
     const [inputCode, setInputCode] = useState('')
     const [outputCode, setOutputCode] = useState('This language is not currently supported. Please check back later this month. Thanks for visiting!')
     
@@ -63,7 +63,7 @@ const TranslateBox = () => {
                     <TranslateBoxFrom onChange={(e) => setInputCode(e.target.value)} style={{alignItems: 'flex-start'}} placeholder="Enter code" />
                     <TranslateBoxDivider />
                     <TranslateBoxTo>
-                        <p style={{ margin: '0px' }}> { outputCode } </p>
+                        <p style={{ margin: '0px' }}>{outputCode}</p>
                     </TranslateBoxTo>
                 </TranslateBoxBar>
             </TranslateBoxInner>

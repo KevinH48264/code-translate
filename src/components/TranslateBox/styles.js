@@ -8,7 +8,6 @@ export const TranslateBoxContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     background-color: lightgrey;
-    /* Add background gradient */
     border: solid #9A9292;
 `
 
