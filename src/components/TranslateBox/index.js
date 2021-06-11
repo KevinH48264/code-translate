@@ -7,7 +7,7 @@ const TranslateBox = () => {
     const [tFrom, setTFrom] = useState('python')
     const [tTo, setTTo] = useState('java')
     const [inputCode, setInputCode] = useState('')
-    const [outputCode, setOutputCode] = useState('This language is not currently supported. Please check back later this month. Thanks for visiting!')
+    const [outputCode, setOutputCode] = useState('Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!')
     
     const handleSubmit = (e) => {
         e.preventDefault() // prevents refresh of the page
