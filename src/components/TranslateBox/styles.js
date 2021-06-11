@@ -8,12 +8,11 @@ export const TranslateBoxContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     background-color: lightgrey;
-    /* Add background gradient */
     border: solid #9A9292;
 `
 
 // Actually the translate box
-export const TranslateBoxInner = styled.div`
+export const TranslateBoxInner = styled.form`
     display: flex;
     width: 80%;
     height: 400px;
@@ -34,16 +33,36 @@ export const TranslateBoxBar = styled.div`
     align-items: center; 
 `
 
-export const TranslateBoxSub = styled.div`
+export const TranslateBoxFrom = styled.textarea`
     display: flex;
     width: 80%;
-    height: 100%;
+    height: 90%;
     justify-content: flex-start; 
     align-items: flex-start; 
     margin: 20px;
     font-size: 24px; 
     font-weight: normal;
     color: grey;
+    border: none;
+    font-family: sans-serif;
+    resize: none;
+    :focus {
+        outline: none;
+    }
+`
+
+export const TranslateBoxTo = styled.div`
+    display: flex;
+    width: 80%;
+    height: 90%;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    margin: 20px;
+    font-size: 24px; 
+    font-weight: normal;
+    color: grey;
+    padding: 0px;
+    border: none;
 `
 
 export const TranslateBoxDivider = styled.div`
@@ -62,7 +81,7 @@ export const TranslateBoxOptionBox = styled.div`
     /* border: 1px solid black; */
 `
 
-export const TranslateBoxImage = styled.img`
+export const TranslateBoxImage = styled.input`
     height: 30px;
     padding: 0px 10px 0px 10px;
 `
