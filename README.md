@@ -1,13 +1,18 @@
 # Code Translate
 This is the code repo for Code Translate | June 2021
 
+## Installation
+
+```bash
+npm i # install node packages
+pip install -r requirements.txt # install python packages
+```
 
 ## Usage  
 ```bash
 # Activate virtual environment
 cd code-translate
 venv\Scripts\activate # for Windows
-
 deactivate # to deactivate
 
 # Run and develop app locally, use 2 terminals
@@ -29,7 +34,7 @@ Both automatically update upon saved changes to relevant files.
 npm run build # create the build file
 
 heroku login # sign into heroku
-heroku git:remote -a codetranslateapp # codetranslateapp is the dev server, code-translate-app / code-translate is the production server
+heroku git:remote -a code-translate # codetranslateapp is the dev server, code-translate-app / code-translate is the production server
 
 git add .
 git commit -m <message>
