@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {
     TranslateBoxImage, TranslateBoxInner, TranslateBoxContainer, TranslateBoxBar, TranslateBoxOptionBox, TranslateBoxFrom, TranslateBoxTo, TranslateBoxDivider, TranslateBoxOption, TranslateBoxUnderline, TranslateBoxLineHolder
 } from './styles'
+import ReactGA from 'react-ga';
 
 const TranslateBox = () => {
     const [tFrom, setTFrom] = useState('python')
@@ -9,6 +10,11 @@ const TranslateBox = () => {
     const [inputCode, setInputCode] = useState('')
     const [outputCode, setOutputCode] = useState('Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!')
     
+    ReactGA.event({
+        category: 'User',
+        action: 'Hit the Translate Button'
+    })
+
     const handleSubmit = (e) => {
         e.preventDefault() // prevents refresh of the page
         fetch('/translate', {

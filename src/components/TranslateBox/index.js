@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ReactGA from 'react-ga'
 import {
     TranslateBoxImage, TranslateBoxInner, TranslateBoxContainer, TranslateBoxBar, TranslateBoxOptionBox, TranslateBoxFrom, TranslateBoxTo, TranslateBoxDivider, TranslateBoxOption, TranslateBoxUnderline, TranslateBoxLineHolder
 } from './styles'
@@ -8,8 +9,13 @@ const TranslateBox = () => {
     const [tTo, setTTo] = useState('java')
     const [inputCode, setInputCode] = useState('')
     const [outputCode, setOutputCode] = useState('Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!')
-    
+
     const handleSubmit = (e) => {
+        ReactGA.event({
+            category: 'User',
+            action: 'Clicked the Translate Button'
+        })
+
         e.preventDefault() // prevents refresh of the page
         fetch('/translate', {
             method: 'POST',
@@ -41,13 +47,13 @@ const TranslateBox = () => {
                             Java
                             <TranslateBoxUnderline type="button" selected={tFrom === "java"} />
                         </TranslateBoxOption>
-                        <TranslateBoxOption type="button" selected={tFrom === "python"} id="python" onClick={e => setTFrom(e.target.id)} onClick={e => setTFrom(e.target.id)} active={tFrom === "python"}>
+                        <TranslateBoxOption type="button" selected={tFrom === "python"} id="python" onClick={e => setTFrom(e.target.id)} active={tFrom === "python"}>
                             <TranslateBoxLineHolder />
                             Python
                             <TranslateBoxUnderline selected={tFrom === "python"} />
                         </TranslateBoxOption>
                     </TranslateBoxOptionBox>
-                    <TranslateBoxImage type="image" src={`${process.env.PUBLIC_URL}/translate.png`} alt="Translate Image Submit" /> {/* temporary submit box around image */}
+                    <TranslateBoxImage type="image" src={`${process.env.PUBLIC_URL}/translate.png`} alt="Translate Image Submit"/> {/* temporary submit box around image */}
                     <TranslateBoxOptionBox>
                         <TranslateBoxOption type="button" selected={tTo === "java"} id="java" onClick={e => setTTo(e.target.id)}>
                             <TranslateBoxLineHolder />
