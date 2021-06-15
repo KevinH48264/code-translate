@@ -1,7 +1,5 @@
 import React from 'react';
 import Translate from './containers/Translate';
-import Mobile from './containers/Mobile';
-import { BrowserView, MobileView } from 'react-device-detect'
 import ReactGA from 'react-ga';
 import RouteChangeTracker from './components/RouteChangeTracker'
 import { BrowserRouter as Router, useHistory, Route } from 'react-router-dom'
@@ -12,7 +10,7 @@ ReactGA.initialize(code_translate_TRACKING_ID, {
   debug: true,
   titleCase: false,
   gaOptions: {
-    userId: 123
+    userId: 123 // placeholder
   }
 })
 ReactGA.pageview(window.location.pathname + window.location.search)

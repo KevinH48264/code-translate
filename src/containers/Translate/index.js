@@ -5,6 +5,8 @@ import Feedback from '../../components/Feedback'
 import FeedbackReceived from '../../components/Feedback/ThankYou'
 import OpenFeedback from '../../components/Feedback/OpenFeedback'
 import { Font } from '../styles'
+import Mobile from '../Mobile';
+import { BrowserView, MobileView } from 'react-device-detect'
 
 const Translate = () => {
     const [showFeedback, setShowFeedback] = useState(false)
@@ -12,12 +14,17 @@ const Translate = () => {
 
     return (
         <Font style={{fontFamily: 'sans-serif', fontWeight: 'bold'}}>
-            <NavBar />
-            <TranslateBox />
-            <OpenFeedback setShowFeedback={setShowFeedback}/>
-            <Feedback onClose={() => setShowFeedback(false)} show={showFeedback} setFeedbackReceived={setFeedbackReceived}/>
-            <FeedbackReceived show={feedbackReceived}/>
-            {/* <About /> */}
+            <BrowserView>
+                <NavBar />
+                <TranslateBox />
+                <OpenFeedback setShowFeedback={setShowFeedback}/>
+                <Feedback onClose={() => setShowFeedback(false)} show={showFeedback} setFeedbackReceived={setFeedbackReceived}/>
+                <FeedbackReceived show={feedbackReceived}/>
+                {/* <About /> */}
+            </BrowserView>
+            <MobileView>
+                <Mobile />
+            </MobileView>
         </Font>       
     )
 }
