@@ -9,7 +9,7 @@ from server.modelsDB.FeedbackDB import Feedback, addFeedback, getFeedback
 #         self.text = text
 #         self.language = language
 
-routes = Blueprint('routes', __name__, static_folder='build/', template_folder="build", static_url_path='/')
+routes = Blueprint('routes', __name__, static_folder='build/static', static_url_path='/')
 
 @routes.route('/', methods=['GET'])
 def home():

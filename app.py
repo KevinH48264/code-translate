@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, request, jsonify
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from server.init_db import init_db
@@ -6,7 +6,7 @@ import os
 
 init_db() # need to initialize the database first
 
-app = Flask(__name__, static_folder='build/', template_folder="build", static_url_path='/')
+app = Flask(__name__, static_folder='build/static', static_url_path='/')
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
