@@ -6,7 +6,7 @@ import os
 
 init_db() # need to initialize the database first
 
-app = Flask(__name__, static_folder='build/', template_folder="build", static_url_path='/')
+app = Flask(__name__, static_folder='/build/static', template_folder="/build/", static_url_path='/')
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
