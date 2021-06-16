@@ -9,7 +9,7 @@ from server.modelsDB.FeedbackDB import Feedback, addFeedback, getFeedback
 #         self.text = text
 #         self.language = language
 
-routes = Blueprint('routes', __name__, static_folder='build/', static_url_path='/')
+routes = Blueprint('routes', __name__, static_folder='build/', template_folder="build/", static_url_path='/')
 # routes = Blueprint('routes', __name__)
 
 
@@ -25,7 +25,8 @@ def home():
 
 @routes.errorhandler(404)
 def not_found(e): # to prevent the server from returning 404 no found error
-    return routes.send_static_file('index.html')
+    # return routes.send_static_file('index.html')
+    return render_template('index.html')
 
 """ Translate route
 Request data provides: {'tTo': 'python', 'tFrom': 'java', 'inputCode': 'print("Hello world!")'}
