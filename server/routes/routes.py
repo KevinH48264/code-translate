@@ -10,22 +10,13 @@ from server.modelsDB.FeedbackDB import Feedback, addFeedback, getFeedback
 #         self.language = language
 
 routes = Blueprint('routes', __name__, static_folder='build/', template_folder="build/", static_url_path='/')
-# routes = Blueprint('routes', __name__)
-
 
 @routes.route('/', methods=['GET'])
 def home():
-    print("HOME ROUTE HIT")
-    try:
-        print("HOME HIT SEND STATIC FILE")
-        return routes.send_static_file('index.html')
-    except:
-        print("HOME HIT RENDER STATIC FILE")
-        return render_template('index.html')
+    return render_template('index.html')
 
 @routes.errorhandler(404)
 def not_found(e): # to prevent the server from returning 404 no found error
-    # return routes.send_static_file('index.html')
     return render_template('index.html')
 
 """ Translate route
