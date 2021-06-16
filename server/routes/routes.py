@@ -11,14 +11,6 @@ from server.modelsDB.FeedbackDB import Feedback, addFeedback, getFeedback
 
 routes = Blueprint('routes', __name__)
 
-@routes.route('/', methods=['GET'])
-def home():
-    return routes.send_static_file('index.html')
-
-@routes.errorhandler(404)
-def not_found(e): # to prevent the server from returning 404 no found error
-    return routes.send_static_file('index.html')
-
 """ Translate route
 Request data provides: {'tTo': 'python', 'tFrom': 'java', 'inputCode': 'print("Hello world!")'}
 """

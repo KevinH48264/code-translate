@@ -14,13 +14,21 @@ from server.routes.routes import routes
 app.register_blueprint(routes) # last case scenario, these blueprints are messing up the static files
 
 # Serve React App
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def serve(path):
+#     if path != "" and os.path.exists(app.static_folder + '/' + path):
+#         return send_from_directory(app.static_folder, path)
+#     else:
+#         return send_from_directory(app.static_folder, 'index.html')
+
+@routes.route('/', methods=['GET'])
+def home():
+    return routes.send_static_file('index.html')
+
+@routes.errorhandler(404)
+def not_found(e): # to prevent the server from returning 404 no found error
+    return routes.send_static_file('index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, use_reloader=True, port=os.environ.get('PORT', 5000))
