@@ -1,5 +1,11 @@
 public class outputFile {
 	public static void main(String[] args){
-		heiasdf ;
+		if os.path.isfile(file):{
+
+		pythonFile = open(file ;
+		pythonCode = pythonFile.read()
+		pythonFile.close()
+}
+
 	}
 }
