@@ -46,7 +46,7 @@ def translate():
             outputCode = readOutputFile(outputFile) # convert outputfile to output code
             print("outputCode: ", outputCode)
 
-            return jsonify(**{'message': "Success", 'outputCode': outputCode, 'feedbackId': newFeedback.id})
+            return jsonify(**{'message': "Success", 'outputCode': outputCode })
         return jsonify(**{'message': "This code translation is not currently supported."})
     except:
         print(request)
