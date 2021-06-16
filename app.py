@@ -6,7 +6,7 @@ import os
 
 init_db() # need to initialize the database first
 
-app = Flask(__name__, static_url_path='', static_folder='build', template_folder="build")
+app = Flask(__name__, static_url_path='', static_folder='build/', template_folder="build")
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
@@ -22,11 +22,11 @@ app.register_blueprint(routes) # last case scenario, these blueprints are messin
 #     else:
 #         return send_from_directory(app.static_folder, 'index.html')
 
-@routes.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return routes.send_static_file('index.html')
 
-@routes.errorhandler(404)
+@app.errorhandler(404)
 def not_found(e): # to prevent the server from returning 404 no found error
     return routes.send_static_file('index.html')
 
