@@ -11,7 +11,16 @@ CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 from server.routes.routes import routes
-app.register_blueprint(routes)
+app.register_blueprint(routes) # last case scenario, these blueprints are messing up the static files
+
+# Serve React App
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, use_reloader=True, port=os.environ.get('PORT', 5000))
