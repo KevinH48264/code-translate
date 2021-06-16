@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from server.inputProcessing.inputProcessing import createInputFile
 from server.python2java.python2java import python2java
 from server.outputProcessing.outputProcessing import readOutputFile
@@ -9,13 +9,19 @@ from server.modelsDB.FeedbackDB import Feedback, addFeedback, getFeedback
 #         self.text = text
 #         self.language = language
 
-# routes = Blueprint('routes', __name__, static_folder='build/static', static_url_path='/')
-routes = Blueprint('routes', __name__)
+routes = Blueprint('routes', __name__, static_folder='build/', static_url_path='/')
+# routes = Blueprint('routes', __name__)
 
 
 @routes.route('/', methods=['GET'])
 def home():
-    return routes.send_static_file('index.html')
+    print("HOME ROUTE HIT")
+    try:
+        print("HOME HIT SEND STATIC FILE")
+        return routes.send_static_file('index.html')
+    except:
+        print("HOME HIT RENDER STATIC FILE")
+        return render_template('index.html')
 
 @routes.errorhandler(404)
 def not_found(e): # to prevent the server from returning 404 no found error
