@@ -39,7 +39,7 @@ export const TranslateBoxFrom = styled.textarea`
     justify-content: flex-start; 
     align-items: flex-start; 
     margin: 5px;
-    font-size: 28px; 
+    font-size: 24px; 
     font-weight: normal;
     color: grey;
     border: none;
@@ -56,7 +56,7 @@ export const TranslateBoxTo = styled.div`
     height: 275px;
     justify-content: center; 
     align-items: flex-start; 
-    font-size: 28px; 
+    font-size: 24px; 
     font-weight: normal;
     color: white;
     border: none;
@@ -72,14 +72,13 @@ export const TranslateBoxDivider = styled.div`
 export const TranslateBoxOptionBox = styled.div`
     display: flex;
     width: 100%;
-    /* height: 65px; */
     justify-content: flex-start; 
     align-items: center; 
     flex-direction: column;
     /* border: 1px solid black; */
 `
 
-export const TranslateBoxImage = styled.input`
+export const TranslateBoxImage = styled.img`
     height: 40px;
     padding: 0px 10px 0px 10px;
 `
@@ -90,15 +89,15 @@ export const TranslateBoxOption = styled.button`
     justify-content: space-between; 
     align-items: center; 
     border: none;
-    font-size: 24px; 
+    font-size: 20px; 
     font-weight: bold;
     background-color: white;
     cursor: pointer;
-    color: ${props => (props.selected ? '#1A73E8' : 'black')};
+    color: ${props => (props.selected ? '#1A73E8' : 'grey')};
     flex-direction: column;
     text-transform: uppercase;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
 `
 
 export const TranslateBoxUnderline = styled.span`
