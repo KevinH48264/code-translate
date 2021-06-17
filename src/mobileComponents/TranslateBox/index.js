@@ -4,40 +4,21 @@ import {
 } from './styles'
 import { Event } from '../../libs/tracking'
 
-const TranslateBox = () => {
-    const [tFrom, setTFrom] = useState('python')
-    const [tTo, setTTo] = useState('java')
-    const [inputCode, setInputCode] = useState('')
-    const [outputCode, setOutputCode] = useState('Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!')
-    
+const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, outputCode, setOutputCode }) => {
     Event('Mobile', 'Translate Button', 'Translate')
 
-    const handleSubmit = (e) => {
-        e.preventDefault() // prevents refresh of the page
-        fetch('/translate', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ tTo, tFrom, inputCode })
-        })
-        .then(res => res.json())
-        .then(res => {
-            console.log(res)
-            if (res.outputCode) {
-                setOutputCode(res.outputCode)
-            } else {
-                setOutputCode(res.message)
-            }
-        }).catch((err) => {
-            console.log('Error:', err)
-        })
+    const switchLanguages = () => {
+        Event('Desktop', 'Switch Languages Button', 'Switch')
+        const tempTo = tTo
+        const tempFrom = tFrom
+        setTTo(tempFrom)
+        setTFrom(tempTo)
     }
 
     return (
         <TranslateBoxContainer>
-            <TranslateBoxInner id="translateForm" onSubmit={handleSubmit}>
-                <TranslateBoxBar style={{ borderTop: 'solid grey', borderBottom: 'solid grey' }}>
+            <TranslateBoxInner id="translateForm">
+                <TranslateBoxBar style={{ borderTop: 'solid silver', borderBottom: 'solid silver' }}>
                     <TranslateBoxOptionBox style={{ alignItems: 'flex-start' }}>
                         <TranslateBoxOption type="button" selected={tFrom === "java"} id="java" onClick={e => setTFrom(e.target.id)} style={{ borderRadius: '15px 0px 0px 0px' }}>
                             {/* <TranslateBoxLineHolder /> */}
@@ -50,7 +31,7 @@ const TranslateBox = () => {
                             {/* <TranslateBoxUnderline selected={tFrom === "python"} /> */}
                         </TranslateBoxOption>
                     </TranslateBoxOptionBox>
-                    <TranslateBoxImage type="image" src={`${process.env.PUBLIC_URL}/translate.png`} alt="Translate Image Submit" /> {/* temporary submit box around image */}
+                    <TranslateBoxImage type="image" onClick={ switchLanguages } src={`${process.env.PUBLIC_URL}/translate.png`} alt="Translate Image Submit" /> {/* temporary submit box around image */}
                     <TranslateBoxOptionBox style={{ alignItems: 'flex-end' }}>
                         <TranslateBoxOption type="button" selected={tTo === "java"} id="java" onClick={e => setTTo(e.target.id)}>
                             {/* <TranslateBoxLineHolder /> */}

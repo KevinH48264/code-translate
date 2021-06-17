@@ -80,11 +80,14 @@ export const OpenFeedbackButtonContainer = styled.div`
     justify-content: center;
 `
 
-export const OpenFeedbackButton = styled.p`
+export const OpenFeedbackButton = styled.div`
     width: 80%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+`
+
+export const OpenFeedbackText = styled.p`
     cursor: pointer;
     font-weight: normal;
     font-style: italic;
@@ -92,6 +95,9 @@ export const OpenFeedbackButton = styled.p`
     margin: 0px;
     padding: 0px;
     padding-top: 10px;
+    :hover {
+        text-decoration: underline;
+    }
 `
 
 export const FeedbackText = styled.textarea`
@@ -154,4 +160,5 @@ export const TYFeedbackHeader = styled.div`
     padding: 0px;
     margin: 0px;
     border-radius: 15px;
+    font-weight: normal;
 `

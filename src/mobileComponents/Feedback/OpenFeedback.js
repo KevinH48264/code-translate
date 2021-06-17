@@ -1,13 +1,15 @@
 import React from 'react'
-import { OpenFeedbackButtonContainer, OpenFeedbackButton } from './styles'
+import { OpenFeedbackText, OpenFeedbackButtonContainer, OpenFeedbackButton } from './styles'
 import { Event } from '../../libs/tracking'
 
 const OpenFeedback = ({ setShowFeedback }) => (
     <OpenFeedbackButtonContainer>
-        <OpenFeedbackButton onClick={() => {
-            setShowFeedback(true); 
-            Event('Mobile', 'Send Feedback Button', 'Feedback')
-            }}>Send feedback</OpenFeedbackButton>
+        <OpenFeedbackButton>
+            <OpenFeedbackText onClick={() => {
+                setShowFeedback(true); 
+                Event('Mobile', 'Send Feedback Button', 'Feedback')
+                }}>Send feedback</OpenFeedbackText>
+        </OpenFeedbackButton>
     </OpenFeedbackButtonContainer>
 )
 

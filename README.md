@@ -2,7 +2,7 @@
 This is the code repo for Code Translate | June 2021
 
 ## Installation
-
+Check out this Getting Started doc first: https://docs.google.com/document/d/16Qs5V0TVBTqcahy2TbNnZyZ_6aW2MfyZp7Iux99KNBU/edit?usp=sharing
 ```bash
 npm i # install node packages
 pip install -r requirements.txt # install python packages

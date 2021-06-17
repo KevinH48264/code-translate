@@ -8,7 +8,8 @@ export const TranslateBoxContainer = styled.div`
     justify-content: center;
     align-items: flex-start;
     background-color: lightgrey;
-    border: solid #9A9292;
+    border-top: solid silver;
+    border-bottom: solid silver;
 `
 
 // Actually the translate box
@@ -18,11 +19,11 @@ export const TranslateBoxInner = styled.form`
     height: 400px;
     justify-content: flex-start; 
     align-items: center; 
-    border: solid grey;
     margin-top: 75px;
     flex-direction: column;
     background-color: white;
     border-radius: 15px;
+    box-shadow: 0 0 2px 2px silver;
 `
 
 export const TranslateBoxBar = styled.div`
@@ -68,7 +69,7 @@ export const TranslateBoxTo = styled.div`
 export const TranslateBoxDivider = styled.div`
     width: 0px;
     height: 100%;
-    border: solid grey;
+    border: solid silver;
 `
 
 export const TranslateBoxOptionBox = styled.div`
@@ -78,12 +79,18 @@ export const TranslateBoxOptionBox = styled.div`
     justify-content: flex-start; 
     align-items: center; 
     text-transform: uppercase;
-    /* border: 1px solid black; */
 `
 
-export const TranslateBoxImage = styled.input`
+export const TranslateBoxImage = styled.img`
     height: 30px;
-    padding: 0px 10px 0px 10px;
+    width: 30px;
+    padding: 10px;
+    border-radius: 90px;
+    cursor: pointer;
+    :hover{
+        background-color: #E7E7E7;
+    }
+    /* aria-label="Swap languages (Ctrl+Shift+S)" */
 `
 
 export const TranslateBoxOption = styled.button`
@@ -97,8 +104,12 @@ export const TranslateBoxOption = styled.button`
     font-weight: bold;
     background-color: white;
     cursor: pointer;
-    color: ${props => (props.selected ? '#1A73E8' : 'black')};
+    color: ${props => (props.selected ? '#1A73E8' : 'grey')};
     flex-direction: column;
+    text-transform: uppercase;
+    :hover{
+        background-color: #E7E7E7;
+    }
 `
 
 export const TranslateBoxUnderline = styled.span`
