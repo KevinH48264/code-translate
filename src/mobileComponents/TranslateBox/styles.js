@@ -4,43 +4,42 @@ import styled from 'styled-components'
 export const TranslateBoxContainer = styled.div`
     display: flex; 
     width: 100%; 
-    height: 100px;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: lightgrey;
-    border: solid #9A9292;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 `
 
 // Actually the translate box
 export const TranslateBoxInner = styled.form`
     display: flex;
-    width: 80%;
-    height: 400px;
-    justify-content: flex-start; 
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    /* height: 400px; */
+    /* justify-content: flex-start; 
     align-items: center; 
     border: solid grey;
     margin-top: 75px;
-    flex-direction: column;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 15px; */
 `
 
 export const TranslateBoxBar = styled.div`
     display: flex;
     width: 100%;
-    height: 100%;
     justify-content: space-between; 
     align-items: center; 
+    padding: 15px 0px 15px 0px;
 `
 
 export const TranslateBoxFrom = styled.textarea`
     display: flex;
-    width: 80%;
-    height: 90%;
+    width: 90%;
+    height: 250px;
     justify-content: flex-start; 
     align-items: flex-start; 
-    margin: 20px;
-    font-size: 24px; 
+    margin: 5px;
+    font-size: 28px; 
     font-weight: normal;
     color: grey;
     border: none;
@@ -53,16 +52,15 @@ export const TranslateBoxFrom = styled.textarea`
 
 export const TranslateBoxTo = styled.div`
     display: flex;
-    width: 80%;
-    height: 90%;
-    justify-content: flex-start; 
+    width: 100%;
+    height: 275px;
+    justify-content: center; 
     align-items: flex-start; 
-    margin: 20px;
-    font-size: 24px; 
+    font-size: 28px; 
     font-weight: normal;
-    color: grey;
-    padding: 0px;
+    color: white;
     border: none;
+    background-color: #1A73E8;
 `
 
 export const TranslateBoxDivider = styled.div`
@@ -74,31 +72,33 @@ export const TranslateBoxDivider = styled.div`
 export const TranslateBoxOptionBox = styled.div`
     display: flex;
     width: 100%;
-    height: 100%;
+    /* height: 65px; */
     justify-content: flex-start; 
     align-items: center; 
-    text-transform: uppercase;
+    flex-direction: column;
     /* border: 1px solid black; */
 `
 
 export const TranslateBoxImage = styled.input`
-    height: 30px;
+    height: 40px;
     padding: 0px 10px 0px 10px;
 `
 
 export const TranslateBoxOption = styled.button`
     display: flex;
     width: 125px;
-    height: 100%;
     justify-content: space-between; 
     align-items: center; 
     border: none;
-    font-size: 20px; 
+    font-size: 24px; 
     font-weight: bold;
     background-color: white;
     cursor: pointer;
     color: ${props => (props.selected ? '#1A73E8' : 'black')};
     flex-direction: column;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 5px;
 `
 
 export const TranslateBoxUnderline = styled.span`

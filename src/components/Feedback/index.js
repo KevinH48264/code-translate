@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FeedbackSubmitButton, FeedbackText, FeedbackContainer, FeedbackInner, FeedbackHeader, FeedbackBody, FeedbackFooter } from './styles'
 import './transition.css'
-import ReactGA from 'react-ga'
+import { Event } from '../../libs/tracking'
   
 const Feedback = props => {
     const [text, setText] = useState('')
@@ -15,11 +15,8 @@ const Feedback = props => {
     const sentFeedback = () => {
         props.onClose() // close the Modal
 
-        // record the event on GA
-        ReactGA.event({
-            category: 'User',
-            action: 'Clicked the Send Feedback Button'
-        })
+        // GA record
+        Event('Desktop', 'Send Feedback Button', 'Feedback')
 
         // send the feedback through the feedback route
         fetch('/feedback', {
@@ -62,7 +59,7 @@ const Feedback = props => {
                     <FeedbackText placeholder="Have feedback? We'd love to hear it!" onChange={(e) => setText(e.target.value)} value={text}/>
                 </FeedbackBody>
                 <FeedbackFooter>
-                    <FeedbackSubmitButton onClick={props.onClose}>Cancel</FeedbackSubmitButton>
+                    <FeedbackSubmitButton onClick={() => {props.onClose(); Event('Desktop', 'Cancel Feedback Button', 'Feedback')}}>Cancel</FeedbackSubmitButton>
                     <FeedbackSubmitButton onClick={sentFeedback}>Send</FeedbackSubmitButton>
                 </FeedbackFooter>
             </FeedbackInner>

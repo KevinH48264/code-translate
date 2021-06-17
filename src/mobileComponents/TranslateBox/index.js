@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
     TranslateBoxImage, TranslateBoxInner, TranslateBoxContainer, TranslateBoxBar, TranslateBoxOptionBox, TranslateBoxFrom, TranslateBoxTo, TranslateBoxDivider, TranslateBoxOption, TranslateBoxUnderline, TranslateBoxLineHolder
 } from './styles'
-import ReactGA from 'react-ga';
+import { Event } from '../../libs/tracking'
 
 const TranslateBox = () => {
     const [tFrom, setTFrom] = useState('python')
@@ -10,10 +10,7 @@ const TranslateBox = () => {
     const [inputCode, setInputCode] = useState('')
     const [outputCode, setOutputCode] = useState('Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!')
     
-    ReactGA.event({
-        category: 'User',
-        action: 'Hit the Translate Button'
-    })
+    Event('Mobile', 'Translate Button', 'Translate')
 
     const handleSubmit = (e) => {
         e.preventDefault() // prevents refresh of the page
@@ -40,38 +37,37 @@ const TranslateBox = () => {
     return (
         <TranslateBoxContainer>
             <TranslateBoxInner id="translateForm" onSubmit={handleSubmit}>
-                <TranslateBoxBar style={{ height: '65px', borderBottom: 'solid grey' }}>
-                    <TranslateBoxOptionBox>
+                <TranslateBoxBar style={{ borderTop: 'solid grey', borderBottom: 'solid grey' }}>
+                    <TranslateBoxOptionBox style={{ alignItems: 'flex-start' }}>
                         <TranslateBoxOption type="button" selected={tFrom === "java"} id="java" onClick={e => setTFrom(e.target.id)} style={{ borderRadius: '15px 0px 0px 0px' }}>
-                            <TranslateBoxLineHolder />
+                            {/* <TranslateBoxLineHolder /> */}
                             Java
-                            <TranslateBoxUnderline type="button" selected={tFrom === "java"} />
+                            {/* <TranslateBoxUnderline type="button" selected={tFrom === "java"} /> */}
                         </TranslateBoxOption>
-                        <TranslateBoxOption type="button" selected={tFrom === "python"} id="python" onClick={e => setTFrom(e.target.id)} onClick={e => setTFrom(e.target.id)} active={tFrom === "python"}>
-                            <TranslateBoxLineHolder />
+                        <TranslateBoxOption type="button" style={{ marginTop: '10px' }} selected={tFrom === "python"} id="python" onClick={e => setTFrom(e.target.id)} onClick={e => setTFrom(e.target.id)} active={tFrom === "python"}>
+                            {/* <TranslateBoxLineHolder /> */}
                             Python
-                            <TranslateBoxUnderline selected={tFrom === "python"} />
+                            {/* <TranslateBoxUnderline selected={tFrom === "python"} /> */}
                         </TranslateBoxOption>
                     </TranslateBoxOptionBox>
                     <TranslateBoxImage type="image" src={`${process.env.PUBLIC_URL}/translate.png`} alt="Translate Image Submit" /> {/* temporary submit box around image */}
-                    <TranslateBoxOptionBox>
+                    <TranslateBoxOptionBox style={{ alignItems: 'flex-end' }}>
                         <TranslateBoxOption type="button" selected={tTo === "java"} id="java" onClick={e => setTTo(e.target.id)}>
-                            <TranslateBoxLineHolder />
+                            {/* <TranslateBoxLineHolder /> */}
                             Java
-                            <TranslateBoxUnderline selected={tTo === "java"} />
+                            {/* <TranslateBoxUnderline selected={tTo === "java"} /> */}
                         </TranslateBoxOption>
-                        <TranslateBoxOption type="button" selected={tTo === "python"} id="python" onClick={e => setTTo(e.target.id)}>
-                            <TranslateBoxLineHolder />
+                        <TranslateBoxOption type="button" style={{ marginTop: '10px' }} selected={tTo === "python"} id="python" onClick={e => setTTo(e.target.id)}>
+                            {/* <TranslateBoxLineHolder /> */}
                             Python
-                            <TranslateBoxUnderline selected={tTo === "python"} />
+                            {/* <TranslateBoxUnderline selected={tTo === "python"} /> */}
                         </TranslateBoxOption>
                     </TranslateBoxOptionBox>
                 </TranslateBoxBar>
-                <TranslateBoxBar style={{ justifyContent: 'flex-start' }}>  {/* This is for the translate area */}
+                <TranslateBoxBar style={{ paddingBottom: '0px', flexDirection: 'column', justifyContent: 'flex-start' }}>
                     <TranslateBoxFrom onChange={(e) => setInputCode(e.target.value)} style={{alignItems: 'flex-start'}} placeholder="Enter code" />
-                    <TranslateBoxDivider />
                     <TranslateBoxTo>
-                        <p style={{ margin: '0px' }}>{outputCode}</p>
+                        <p style={{ width: '90%', height: '80%', margin: '15px 5px 15px 5px' }}>{outputCode}</p>
                     </TranslateBoxTo>
                 </TranslateBoxBar>
             </TranslateBoxInner>

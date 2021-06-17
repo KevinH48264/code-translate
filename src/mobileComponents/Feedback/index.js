@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { FeedbackSubmitButton, FeedbackText, FeedbackContainer, FeedbackInner, FeedbackHeader, FeedbackBody, FeedbackFooter } from './styles'
+import { SubmitButton, FeedbackText, FeedbackContainer, FeedbackInner, FeedbackHeader, FeedbackBody, FeedbackFooter } from './styles'
 import './transition.css'
+import { Event } from '../../libs/tracking'
   
 const Feedback = props => {
     const [text, setText] = useState('')
@@ -13,6 +14,23 @@ const Feedback = props => {
 
     const sentFeedback = () => {
         props.onClose()
+
+        // GA record
+        Event('Mobile', 'Send Feedback Button', 'Feedback')
+
+        // send the feedback through the feedback route
+        fetch('/feedback', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ feedback: text })
+        }).then(res => res.json()).then(res => {
+            console.log(res)
+        }).catch((err) => {
+            console.log('Error:', err)
+        })
+
         setTimeout(() => {
             props.setFeedbackReceived(true)
             setText('')
@@ -33,16 +51,13 @@ const Feedback = props => {
         <FeedbackContainer className='modal' selected={props.show} onClick={props.onClose}>
             <FeedbackInner  className='modal-content' selected={props.show} onClick={e => e.stopPropagation()}>
                 <FeedbackHeader>
-                    <p style={{ paddingLeft: '5%'}}>Send feedback</p>
-                    <p style={{ paddingRight: '5%', cursor: 'pointer' }} onClick={props.onClose}>X</p>
+                    <SubmitButton style={{  }} onClick={() => {props.onClose(); Event('Mobile', 'Cancel Feedback Button', 'Feedback')}}>X</SubmitButton>
+                    <p style={{ fontWeight: 'normal', width: '60%' }}>Send feedback</p>
+                    <SubmitButton style={{ fontWeight: 'bold' }} onClick={sentFeedback}>></SubmitButton>
                 </FeedbackHeader>
                 <FeedbackBody>
                     <FeedbackText placeholder="Have feedback? We'd love to hear it!" onChange={(e) => setText(e.target.value)} value={text}/>
                 </FeedbackBody>
-                <FeedbackFooter>
-                    <FeedbackSubmitButton onClick={props.onClose}>Cancel</FeedbackSubmitButton>
-                    <FeedbackSubmitButton onClick={sentFeedback}>Send</FeedbackSubmitButton>
-                </FeedbackFooter>
             </FeedbackInner>
         </FeedbackContainer>
     )
