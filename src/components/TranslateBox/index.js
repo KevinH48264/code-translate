@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ReactGA from 'react-ga'
+import { Event } from '../../libs/tracking'
 import {
     TranslateBoxImage, TranslateBoxInner, TranslateBoxContainer, TranslateBoxBar, TranslateBoxOptionBox, TranslateBoxFrom, TranslateBoxTo, TranslateBoxDivider, TranslateBoxOption, TranslateBoxUnderline, TranslateBoxLineHolder
 } from './styles'
@@ -11,10 +11,7 @@ const TranslateBox = () => {
     const [outputCode, setOutputCode] = useState('Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!')
 
     const handleSubmit = (e) => {
-        ReactGA.event({
-            category: 'User',
-            action: 'Clicked the Translate Button'
-        })
+        Event('Desktop', 'Translate Button', 'Translate')
 
         e.preventDefault() // prevents refresh of the page
         fetch('/translate', {
@@ -53,7 +50,7 @@ const TranslateBox = () => {
                             <TranslateBoxUnderline selected={tFrom === "python"} />
                         </TranslateBoxOption>
                     </TranslateBoxOptionBox>
-                    <TranslateBoxImage type="image" src={`${process.env.PUBLIC_URL}/translate.png`} alt="Translate Image Submit"/> {/* temporary submit box around image */}
+                    <TranslateBoxImage type="image" src={`${process.env.PUBLIC_URL}/translate.png`} alt="Translate Image Submit"/> 
                     <TranslateBoxOptionBox>
                         <TranslateBoxOption type="button" selected={tTo === "java"} id="java" onClick={e => setTTo(e.target.id)}>
                             <TranslateBoxLineHolder />

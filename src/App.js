@@ -1,28 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { PageView, initGA } from './libs/tracking';
 import Translate from './containers/Translate';
-import ReactGA from 'react-ga';
-import RouteChangeTracker from './components/RouteChangeTracker'
-import { BrowserRouter as Router, useHistory, Route } from 'react-router-dom'
-
-const code_translate_TRACKING_ID = "G-0C2J3575QX" // https://code-translate.herokuapp.com
-// const codetranslateapp_TRACKING_ID = "G-CSK5JKES70" // https://codetranslateapp.herokuapp.com/
-ReactGA.initialize(code_translate_TRACKING_ID, {
-  debug: true,
-  titleCase: false,
-  gaOptions: {
-    userId: 123 // placeholder
-  }
-})
-ReactGA.pageview(window.location.pathname + window.location.search)
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const App = () => {
-  const history = useHistory()
+  useEffect(() => {
+    initGA("UA-199218131-2")  // Using Universal Analytics Version
+    PageView()
+  }, [])
 
   return (
     <Router>
-      <RouteChangeTracker history={history}>
-        <Route exact path="/" component={Translate}/>
-      </RouteChangeTracker>
+      <Translate />
     </Router>
   )
 }
