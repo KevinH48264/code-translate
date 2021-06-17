@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FeedbackSubmitButton, FeedbackText, FeedbackContainer, FeedbackInner, FeedbackHeader, FeedbackBody, FeedbackFooter } from './styles'
 import './transition.css'
+import ReactGA from 'react-ga'
   
 const Feedback = props => {
     const [text, setText] = useState('')
@@ -12,10 +13,31 @@ const Feedback = props => {
     }
 
     const sentFeedback = () => {
-        props.onClose()
+        props.onClose() // close the Modal
+
+        // record the event on GA
+        ReactGA.event({
+            category: 'User',
+            action: 'Clicked the Send Feedback Button'
+        })
+
+        // send the feedback through the feedback route
+        fetch('/feedback', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ feedback: text })
+        }).then(res => res.json()).then(res => {
+            console.log(res)
+        }).catch((err) => {
+            console.log('Error:', err)
+        })
+
+        // This timing is to time the thank you for feedback dropdown
         setTimeout(() => {
             props.setFeedbackReceived(true)
-            setText('')
+            setText('') // reset feedback text
         }, 500)
         setTimeout(() => {
             props.setFeedbackReceived(false)
