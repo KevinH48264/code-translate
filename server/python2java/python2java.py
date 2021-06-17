@@ -45,7 +45,6 @@ def python2java(file):
 		openClass(javaFile, javaMainClass)
 
 		javaCode = BlockReplacer.BlockReplacer().replace(pythonCode)
-		tmp = ""
 		for line in javaCode.split("\n"):
 			for replacer in replacers:
 				line = replacer.replace(line)
