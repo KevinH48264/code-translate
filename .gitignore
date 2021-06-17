@@ -31,4 +31,7 @@ yarn-error.log*
 !.elasticbeanstalk/*.global.yml
 
 /examples
-server/outputProcessing/outputFiles/
+server/outputProcessing/outputFiles/inputFile.py
+server/outputProcessing/outputFiles/inputFile.java
+server/outputProcessing/outputFiles/outputFile.py
+server/outputProcessing/outputFiles/outputFile.java

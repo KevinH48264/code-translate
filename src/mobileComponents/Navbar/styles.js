@@ -14,9 +14,8 @@ export const NavbarContainer = styled.div`
 export const NavInner = styled.div`
     display: flex;
     width: 100%;
-    justify-content: flex-start; 
+    justify-content: center; 
     align-items: center; 
-    padding: 50px;
 `
 
 // export const NavbarLink = styled(NavLink)`
@@ -28,5 +27,5 @@ export const NavInner = styled.div`
 
 export const NavbarImage = styled.img`
     height: 2.5rem;
-    padding: 0px 30px 0px 30px;
+    padding: 0px 20px 0px 0px;
 `

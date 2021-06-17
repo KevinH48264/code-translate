@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FeedbackSubmitButton, FeedbackText, FeedbackContainer, FeedbackInner, FeedbackHeader, FeedbackBody, FeedbackFooter } from './styles'
+import { SubmitButton, FeedbackSubmitButton, FeedbackText, FeedbackContainer, FeedbackInner, FeedbackHeader, FeedbackBody, FeedbackFooter } from './styles'
 import './transition.css'
   
 const Feedback = props => {
@@ -33,16 +33,13 @@ const Feedback = props => {
         <FeedbackContainer className='modal' selected={props.show} onClick={props.onClose}>
             <FeedbackInner  className='modal-content' selected={props.show} onClick={e => e.stopPropagation()}>
                 <FeedbackHeader>
-                    <p style={{ paddingLeft: '5%'}}>Send feedback</p>
-                    <p style={{ paddingRight: '5%', cursor: 'pointer' }} onClick={props.onClose}>X</p>
+                    <SubmitButton style={{  }} onClick={props.onClose}>X</SubmitButton>
+                    <p style={{ fontWeight: 'normal', width: '60%' }}>Send feedback</p>
+                    <SubmitButton style={{ fontWeight: 'bold' }} onClick={sentFeedback}>></SubmitButton>
                 </FeedbackHeader>
                 <FeedbackBody>
                     <FeedbackText placeholder="Have feedback? We'd love to hear it!" onChange={(e) => setText(e.target.value)} value={text}/>
                 </FeedbackBody>
-                <FeedbackFooter>
-                    <FeedbackSubmitButton onClick={props.onClose}>Cancel</FeedbackSubmitButton>
-                    <FeedbackSubmitButton onClick={sentFeedback}>Send</FeedbackSubmitButton>
-                </FeedbackFooter>
             </FeedbackInner>
         </FeedbackContainer>
     )

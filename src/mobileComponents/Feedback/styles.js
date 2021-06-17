@@ -7,9 +7,6 @@ export const FeedbackContainer = styled.div`
     top: 0;
     right: 0;
     bottom: 0;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: ${props => (props.selected ? '1' : '0')};
     transition: all 0.3s ease-in-out;
@@ -18,12 +15,13 @@ export const FeedbackContainer = styled.div`
 
 export const FeedbackInner = styled.div`
     display: flex;
-    width: 25%;
-    justify-content: center; 
+    width: 100%;
+    height: 100%;
+    justify-content: space-between; 
     align-items: center; 
     flex-direction: column;
     background-color: white;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     transform: translateY(${props => (props.selected ? '0px' : '-200px' )});
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 2pt 1pt black;
@@ -36,19 +34,19 @@ export const FeedbackHeader = styled.div`
     justify-content: space-between; 
     align-items: center;
     width: 100%;
-    height: 60px;
+    height: 75px;
     background-color: #546E7A;
     color: white;
     font-size: 24px;
     padding: 0px;
     margin: 0px;
-    border-radius: 15px 15px 0px 0px;
 `
 
 export const FeedbackBody = styled.div`
     display: flex;
     justify-content: center; 
     width: 100%;
+    height: 100%;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 `
@@ -73,15 +71,30 @@ export const FeedbackSubmitButton = styled.p`
     font-size: 20px;
 `
 
-// Open Modal BUtton
+export const SubmitButton = styled.button`
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #546E7A;
+    color: white;
+    font-size: 24px;
+    padding: 0px;
+    margin: 15px;
+    border-radius: 5px;
+    cursor: 'pointer';
+    border: 2px solid white;
+`
+
+// Open Modal Button
 export const OpenFeedbackButtonContainer = styled.div`
-    margin-top: 375px;
     display: flex;
     justify-content: center;
 `
 
 export const OpenFeedbackButton = styled.p`
-    width: 80%;
+    width: 95%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -97,7 +110,7 @@ export const OpenFeedbackButton = styled.p`
 export const FeedbackText = styled.textarea`
     display: flex;
     width: 95%;
-    height: 300px;
+    height: 95%;
     justify-content: flex-start; 
     align-items: flex-start; 
     margin: 20px;
@@ -130,7 +143,7 @@ export const TYFeedbackContainer = styled.div`
 
 export const TYFeedbackInner = styled.div`
     display: flex;
-    width: 50%;
+    width: 90%;
     justify-content: center; 
     align-items: center; 
     flex-direction: column;
@@ -147,11 +160,12 @@ export const TYFeedbackHeader = styled.div`
     justify-content: center; 
     align-items: center;
     width: 100%;
-    height: 60px;
+    /* height: 60px; */
     background-color: #546E7A;
     color: white;
     font-size: 24px;
     padding: 0px;
     margin: 0px;
     border-radius: 15px;
+    text-align: center;
 `

@@ -38,10 +38,12 @@ def translate():
             print("inputCode: ", inputCode)
             print("...Creating input file ...")
             inputFile = createInputFile(inputCode, tFrom) # create input file
+            print("Input file created!")
 
             if tFrom == 'python' and tTo == 'java':
                 print("...Creating output file...")
                 outputFile = python2java(inputFile)
+                print("Output file created!")
 
             outputCode = readOutputFile(outputFile) # convert outputfile to output code
             print("outputCode: ", outputCode)

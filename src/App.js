@@ -28,13 +28,3 @@ const App = () => {
 }
 
 export default App;
-
-
-// {/* <RouteChangeTracker history={history}> */}
-//         {/* <BrowserView> */}
-//           {/* <Translate/> */}
-//         {/* </BrowserView> */}
-//         {/* <MobileView>
-//           <Mobile />
-//         </MobileView> */}
-//       {/* </RouteChangeTracker> */}
