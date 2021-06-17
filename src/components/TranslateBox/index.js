@@ -13,6 +13,11 @@ const TranslateBox = () => {
     const handleSubmit = (e) => {
         Event('Desktop', 'Translate Button', 'Translate')
 
+        console.log("...Translating...")
+        console.log(tFrom)
+        console.log(tTo)
+        console.log(inputCode)
+
         e.preventDefault() // prevents refresh of the page
         fetch('/translate', {
             method: 'POST',
