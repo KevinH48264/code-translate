@@ -168,6 +168,7 @@ export const TYFeedbackHeader = styled.div`
     align-items: center;
     width: 100%;
     /* height: 60px; */
+    font-weight: normal;
     background-color: #546E7A;
     color: white;
     font-size: 24px;

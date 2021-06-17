@@ -160,4 +160,5 @@ export const TYFeedbackHeader = styled.div`
     padding: 0px;
     margin: 0px;
     border-radius: 15px;
+    font-weight: normal;
 `
