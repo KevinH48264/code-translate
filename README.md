@@ -4,14 +4,16 @@ This is the code repo for Code Translate | June 2021
 ## Installation
 Check out this Getting Started doc first: https://docs.google.com/document/d/16Qs5V0TVBTqcahy2TbNnZyZ_6aW2MfyZp7Iux99KNBU/edit?usp=sharing
 ```bash
-npm i # install node packages
+yarn install # install node packages
 pip install -r requirements.txt # install python packages
 ```
 
 ## Usage  
 ```bash
-# Activate virtual environment
+# Create a virtual environment using python3's venv module
 cd code-translate
+python3 -m venv venv
+source venv/bin/activate # for Mac
 venv\Scripts\activate # for Windows
 deactivate # to deactivate
 
