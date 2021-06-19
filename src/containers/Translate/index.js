@@ -10,8 +10,11 @@ import Mobile from '../Mobile';
 import { BrowserView, MobileView } from 'react-device-detect'
 
 const Translate = () => {
+    // feedback variables
     const [showFeedback, setShowFeedback] = useState(false)
-    const [feedbackReceived, setFeedbackReceived] = useState(true)
+    const [feedbackReceived, setFeedbackReceived] = useState(false)
+
+    // translation variables
     const [tFrom, setTFrom] = useState('python')
     const [tTo, setTTo] = useState('java')
     const [inputCode, setInputCode] = useState('')
