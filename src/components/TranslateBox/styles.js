@@ -34,7 +34,7 @@ export const TranslateBoxBar = styled.div`
     align-items: center; 
 `
 
-export const TranslateBoxFrom = styled.textarea`
+export const TranslateBoxFrom = styled.div`
     display: flex;
     width: 80%;
     height: 90%;
@@ -43,12 +43,13 @@ export const TranslateBoxFrom = styled.textarea`
     margin: 20px;
     font-size: 24px; 
     font-weight: normal;
-    color: grey;
-    border: none;
+    color: black;
+    border: 0;
     font-family: sans-serif;
     resize: none;
+    outline: 0;
     :focus {
-        outline: none;
+        outline: 0;
     }
 `
 
@@ -61,7 +62,7 @@ export const TranslateBoxTo = styled.div`
     margin: 20px;
     font-size: 24px; 
     font-weight: normal;
-    color: grey;
+    color: black;
     padding: 0px;
     border: none;
 `

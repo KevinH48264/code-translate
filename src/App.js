@@ -12,6 +12,7 @@ const App = () => {
   return (
     <Router>
       <Translate />
+      <p>asdas</p>
     </Router>
   )
 }
