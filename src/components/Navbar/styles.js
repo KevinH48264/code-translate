@@ -7,8 +7,9 @@ export const NavbarContainer = styled.div`
     width: 100%; 
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 65px;
     background-color: white;
+    font-family: Roboto, sans-serif;
 `
 
 export const NavInner = styled.div`
@@ -26,6 +27,6 @@ export const NavInner = styled.div`
 // `
 
 export const NavbarImage = styled.img`
-    height: 2.5rem;
+    height: 2rem;
     padding: 0px 30px 0px 30px;
 `

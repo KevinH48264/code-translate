@@ -20,7 +20,7 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
     return (
         <TranslateBoxContainer>
             <TranslateBoxInner id="translateForm">
-                <TranslateBoxBar style={{ height: '65px', borderBottom: 'solid silver' }}>
+                <TranslateBoxBar style={{ height: '65px', borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}>
                     <TranslateBoxOptionBox>
                         <TranslateBoxOption type="button" selected={tFrom === "java"} id="java" onClick={e => setTFrom(e.target.id)} style={{ borderRadius: '15px 0px 0px 0px' }}>
                             <TranslateBoxLineHolder />
@@ -49,7 +49,7 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
                 </TranslateBoxBar>
                 <TranslateBoxBar style={{ justifyContent: 'flex-start' }}>  {/* This is for the translate area */}
                     {/* <TranslateBoxFrom onChange={(e) => setInputCode(e.target.value)} style={{alignItems: 'flex-start'}} placeholder="Enter code" /> */}
-                    <TranslateBoxFrom>
+                    <TranslateBoxFrom style={{ borderRight: '1px solid rgba(0, 0, 0, 0.12)' }}>
                         <Editor
                             className="container__editor"
                             placeholder="Type some code…"
@@ -64,8 +64,6 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
                             }} 
                         />
                     </TranslateBoxFrom>
-                    
-                    <TranslateBoxDivider />
                     <TranslateBoxTo>
                         <Editor
                             className="container__editor"

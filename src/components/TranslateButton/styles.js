@@ -14,13 +14,14 @@ export const TranslateButtonContainer = styled.div`
 // Actually the translate box
 export const TranslateButtonInner = styled.form`
     display: flex;
-    width: 80%;
+    width: 100%;
     height: 85px;
     justify-content: flex-end; 
     align-items: center; 
     flex-direction: row;
     background-color: white;
     border-radius: 15px;
+    margin-right: 50px;
 `
 
 export const TranslateButtonObject = styled.div`

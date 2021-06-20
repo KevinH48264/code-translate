@@ -4,26 +4,27 @@ import styled from 'styled-components'
 export const TranslateBoxContainer = styled.div`
     display: flex; 
     width: 100%; 
-    height: 100px;
+    height: 80px;
     justify-content: center;
     align-items: flex-start;
-    background-color: lightgrey;
-    border-top: solid silver;
-    border-bottom: solid silver;
+    background-color: rgba(248, 248, 248, 0.87);
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-family: Roboto, sans-serif;
 `
 
 // Actually the translate box
 export const TranslateBoxInner = styled.form`
     display: flex;
-    width: 80%;
+    width: 100%;
     height: 400px;
     justify-content: flex-start; 
     align-items: center; 
-    margin-top: 75px;
     flex-direction: column;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 2px 2px silver;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.22);
+    margin: 50px 50px 0 50px;
 `
 
 export const TranslateBoxBar = styled.div`
@@ -40,12 +41,13 @@ export const TranslateBoxFrom = styled.div`
     height: 90%;
     justify-content: flex-start; 
     align-items: flex-start; 
-    margin: 20px;
-    font-size: 24px; 
+    padding: 20px;
+    margin: 0px;
+    font-size: 20px; 
     font-weight: normal;
     color: black;
     border: 0;
-    font-family: sans-serif;
+    font-family: Roboto, sans-serif;
     resize: none;
     outline: 0;
     :focus {
@@ -59,11 +61,11 @@ export const TranslateBoxTo = styled.div`
     height: 90%;
     justify-content: flex-start; 
     align-items: flex-start; 
-    margin: 20px;
-    font-size: 24px; 
+    padding: 20px;
+    font-size: 20px; 
     font-weight: normal;
     color: black;
-    padding: 0px;
+    margin: 0px;
     border: none;
 `
 
@@ -83,8 +85,8 @@ export const TranslateBoxOptionBox = styled.div`
 `
 
 export const TranslateBoxImage = styled.img`
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     padding: 10px;
     border-radius: 90px;
     cursor: pointer;
@@ -101,13 +103,14 @@ export const TranslateBoxOption = styled.button`
     justify-content: space-between; 
     align-items: center; 
     border: none;
-    font-size: 20px; 
-    font-weight: bold;
+    font-size: 18px; 
+    font-weight: 500;
     background-color: white;
     cursor: pointer;
     color: ${props => (props.selected ? '#1A73E8' : 'grey')};
     flex-direction: column;
     text-transform: uppercase;
+    font-family: Roboto, sans-serif;
     :hover{
         background-color: #E7E7E7;
     }

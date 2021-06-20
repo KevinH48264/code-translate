@@ -75,13 +75,13 @@ export const FeedbackSubmitButton = styled.p`
 
 // Open Modal BUtton
 export const OpenFeedbackButtonContainer = styled.div`
-    margin-top: 375px;
     display: flex;
     justify-content: center;
+    margin: 370px 50px 0 50px;
 `
 
 export const OpenFeedbackButton = styled.div`
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -91,6 +91,7 @@ export const OpenFeedbackText = styled.p`
     cursor: pointer;
     font-weight: normal;
     font-style: italic;
+    color: #5F6368;
     font-size: 18px;
     margin: 0px;
     padding: 0px;
