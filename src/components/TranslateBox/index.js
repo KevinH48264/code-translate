@@ -4,12 +4,8 @@ import { Event } from '../../libs/tracking'
 import {
     TranslateBoxImage, TranslateBoxInner, TranslateBoxContainer, TranslateBoxBar, TranslateBoxOptionBox, TranslateBoxFrom, TranslateBoxTo, TranslateBoxDivider, TranslateBoxOption, TranslateBoxUnderline, TranslateBoxLineHolder
 } from './styles'
-
 import Editor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs/components/prism-core";
-import "prismjs/components/prism-clike";
-import "prismjs/components/prism-javascript";
-import "prismjs/themes/prism.css"; //Example style, you can use another
 import './styles.css'
 
 const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, outputCode, setOutputCode }) => {
@@ -59,26 +55,18 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
                             placeholder="Type some code…"
                             value={inputCode}
                             onValueChange={(inputCode) => setInputCode(inputCode)}
-                            // highlight={(inputCode) => highlight(inputCode, languages.js)}
                             highlight={(inputCode) => inputCode}
-                            //padding={10}
                             tabSize={4}
                             style={{
                                 alignItems: 'flex-start',
                                 width: '100%',
                                 height: '100%',
                             }} 
-                            // style={{
-                            // fontFamily: '"Fira code", "Fira Mono", monospace',
-                            // fontSize: 12,
-                            // }}
                         />
                     </TranslateBoxFrom>
                     
                     <TranslateBoxDivider />
                     <TranslateBoxTo>
-                        {/* <p style={{ margin: '0px' }}>{outputCode}</p> */}
-
                         <Editor
                             className="container__editor"
                             placeholder="Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!"
@@ -86,17 +74,12 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
                             onValueChange={(outputCode) => setOutputCode(outputCode)}
                             highlight={(outputCode) => outputCode}
                             readOnly= "true"
-                            //padding={10}
                             tabSize={4}
                             style={{
                                 alignItems: 'flex-start',
                                 width: '100%',
                                 height: '100%',
                             }}
-                            // style={{
-                            // fontFamily: '"Fira code", "Fira Mono", monospace',
-                            // fontSize: 12,
-                            // }}
                         />
                     </TranslateBoxTo>
                 </TranslateBoxBar>

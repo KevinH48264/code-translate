@@ -42,7 +42,7 @@ def python2java(file):
 
 		javaFile = open(completeName, "w")
 		javaFile.truncate(0) # clear the previous file contents
-		openClass(javaFile, javaMainClass)
+		# openClass(javaFile, javaMainClass)
 
 		javaCode = BlockReplacer.BlockReplacer().replace(pythonCode)
 		for line in javaCode.split("\n"):
@@ -50,7 +50,7 @@ def python2java(file):
 				line = replacer.replace(line)
 			javaFile.write(line + '\n')
 
-		closeClass(javaFile)
+		# closeClass(javaFile)
 		javaFile.close()
 		return completeName
 	else:
