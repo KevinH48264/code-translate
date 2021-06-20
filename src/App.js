@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { PageView, initGA } from './libs/tracking';
 import Translate from './containers/Translate';
 import { BrowserRouter as Router } from 'react-router-dom'
+import 'typeface-roboto';
 
 const App = () => {
   useEffect(() => {

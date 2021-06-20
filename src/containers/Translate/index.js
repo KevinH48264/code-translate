@@ -21,7 +21,7 @@ const Translate = () => {
     const [outputCode, setOutputCode] = useState('')
 
     return (
-        <Font style={{fontFamily: 'sans-serif', fontWeight: 'bold', color: 'black' }}>
+        <Font style={{ fontWeight: 'bold', color: 'black' }}>
             <BrowserView>
                 <NavBar />
                 <TranslateBox tFrom={tFrom} setTFrom={setTFrom} tTo={tTo} setTTo={setTTo} inputCode={inputCode} setInputCode={setInputCode} outputCode={outputCode} setOutputCode={setOutputCode}/>
