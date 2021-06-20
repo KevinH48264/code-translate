@@ -41,7 +41,7 @@ export const TranslateBoxFrom = styled.textarea`
     margin: 5px;
     font-size: 24px; 
     font-weight: normal;
-    color: grey;
+    color: black;
     border: none;
     font-family: sans-serif;
     resize: none;

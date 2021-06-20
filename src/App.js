@@ -5,14 +5,13 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 const App = () => {
   useEffect(() => {
-    initGA("UA-199218131-2")  // Using Universal Analytics Version
+    initGA("UA-199218131-3")  // Using Universal Analytics Version for www.codetranslate.app
     PageView()
   }, [])
 
   return (
     <Router>
       <Translate />
-      <p>asdas</p>
     </Router>
   )
 }

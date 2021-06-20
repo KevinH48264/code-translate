@@ -18,7 +18,7 @@ const Translate = () => {
     const [tFrom, setTFrom] = useState('python')
     const [tTo, setTTo] = useState('java')
     const [inputCode, setInputCode] = useState('')
-    const [outputCode, setOutputCode] = useState('Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!')
+    const [outputCode, setOutputCode] = useState('')
 
     return (
         <Font style={{fontFamily: 'sans-serif', fontWeight: 'bold', color: 'black' }}>
