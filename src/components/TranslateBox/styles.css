@@ -1,17 +1,10 @@
-/* .container__editor {
-    font-size: 12px;
-    font-variant-ligatures: common-ligatures;
-    background-color: transparent;
-    border-radius: 3px;
-  } */
-  
-  .container__editor textarea {
-    outline: 0;
-  }
+.container__editor textarea {
+  outline: 0;
+}
 
-  .container_editor_area {
-    tab-size: 4ch;
-    max-height: 400px;
-    overflow: auto;
-    margin: 1.67em 0;
-  }
+.container_editor_area {
+  tab-size: 4ch;
+  max-height: 400px;
+  overflow: auto;
+  margin: 1.67em 0;
+}

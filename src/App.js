@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { PageView, initGA } from './libs/tracking';
 import Translate from './containers/Translate';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'typeface-roboto';
 
 const App = () => {
@@ -13,11 +12,9 @@ const App = () => {
 
   return (
     <Router>
-      <Translate />
-      <Helmet>
-        <title>Code Translate</title>
-        <meta name="description" content="Code Translate is a free tool to translate your code into another coding language. It is great for picking up the syntax of another language, and it integrates the latest open-source translation libraries. It is still in beta testing, but new features are rolling out everyday." />
-      </Helmet>
+      <Switch>
+        <Route exact path="/" component={Translate} />
+      </Switch>
     </Router>
   )
 }
