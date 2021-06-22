@@ -5,35 +5,35 @@ export const TranslateButtonContainer = styled.div`
     display: flex; 
     width: 100%; 
     height: 100px;
-    margin-top: 25px;
+    margin-top: 60px;
     justify-content: center;
     align-items: flex-start;
-    background-color: white;
+    background-color: transparent;
 `
 
 // Actually the translate box
 export const TranslateButtonInner = styled.form`
     display: flex;
     width: 100%;
-    height: 85px;
+    height: 39px;
     justify-content: flex-end; 
     align-items: center; 
     flex-direction: row;
     background-color: white;
     border-radius: 15px;
-    margin-right: 50px;
+    margin-right: 12px;
 `
 
 export const TranslateButtonObject = styled.div`
     display: flex;
-    width: 25%;
+    width: 27%;
     height: 100%;
     justify-content: center; 
     align-items: center; 
     background-color: #1A73E8;
     color: white;
     text-transform: uppercase;
-    border-radius: 90px;
-    font-size: 28px;
+    border-radius: 15px;
+    font-size: 20px;
     cursor: pointer;
 `
