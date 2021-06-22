@@ -35,11 +35,9 @@ const TranslateButton = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode
     }
 
     return (
-        <TranslateButtonContainer>
-            <TranslateButtonInner>
-                <TranslateButtonObject onClick={handleSubmit}>Translate</TranslateButtonObject>
-            </TranslateButtonInner>
-        </TranslateButtonContainer>
+        <TranslateButtonInner>
+            <TranslateButtonObject onClick={handleSubmit}>Translate</TranslateButtonObject>
+        </TranslateButtonInner>
     )
 }
 

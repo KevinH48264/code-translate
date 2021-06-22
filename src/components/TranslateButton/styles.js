@@ -15,7 +15,7 @@ export const TranslateButtonContainer = styled.div`
 export const TranslateButtonInner = styled.form`
     display: flex;
     width: 100%;
-    height: 39px;
+    height: 40px;
     justify-content: flex-end; 
     align-items: center; 
     flex-direction: row;
@@ -26,7 +26,7 @@ export const TranslateButtonInner = styled.form`
 
 export const TranslateButtonObject = styled.div`
     display: flex;
-    width: 27%;
+    width: 150px;
     height: 100%;
     justify-content: center; 
     align-items: center; 
@@ -34,6 +34,11 @@ export const TranslateButtonObject = styled.div`
     color: white;
     text-transform: uppercase;
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
+    font-weight: 500;
+    :hover {
+        opacity: 90%;
+        box-shadow: 0 0 2px 2px rgba(0,0,0,0.22);
+    }
 `
