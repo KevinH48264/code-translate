@@ -7,6 +7,7 @@ import {
 import Editor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs/components/prism-core";
 import './styles.css'
+import TranslateButton from '../TranslateButton'
 
 const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, outputCode, setOutputCode }) => {
     const switchLanguages = () => {
@@ -45,6 +46,7 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
                             Python
                             <TranslateBoxUnderline selected={tTo === "python"} />
                         </TranslateBoxOption>
+                        <TranslateButton  tFrom={tFrom} setTFrom={setTFrom} tTo={tTo} setTTo={setTTo} inputCode={inputCode} setInputCode={setInputCode} outputCode={outputCode} setOutputCode={setOutputCode}/>
                     </TranslateBoxOptionBox>
                 </TranslateBoxBar>
                 <TranslateBoxBar style={{ justifyContent: 'flex-start' }}>  {/* This is for the translate area */}
