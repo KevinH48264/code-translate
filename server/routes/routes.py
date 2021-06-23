@@ -55,7 +55,7 @@ def translate():
         return jsonify(**{'message': 'Translation was unsupported. :('})
 
 """ Feedback route
-Request data provides: { 'feedback': feedback}
+Request data provides: { 'feedback': feedback }
 """
 @routes.route('/feedback', methods=['POST'])
 def feedback():
