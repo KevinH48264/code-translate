@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { PageView, initGA } from './libs/tracking';
 import Translate from './containers/Translate';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'typeface-roboto';
 
 const App = () => {
@@ -12,7 +12,9 @@ const App = () => {
 
   return (
     <Router>
-      <Translate />
+      <Switch>
+        <Route exact path="/" component={Translate} />
+      </Switch>
     </Router>
   )
 }

@@ -1,4 +1,5 @@
 import os
+from env import ROOT_DIR
 
 import server.python2java.Replacer.IntegerReplacer as IntegerReplacer
 import server.python2java.Replacer.DoubleReplacer as DoubleReplacer
@@ -6,6 +7,7 @@ import server.python2java.Replacer.BlockReplacer as BlockReplacer
 import server.python2java.Replacer.LoopReplacer as LoopReplacer
 import server.python2java.Replacer.SyntaxReplacer as SyntaxReplacer
 import server.python2java.Replacer.CommandReplacer as CommandReplacer
+
 
 
 def openClass(outFile, name):
@@ -36,9 +38,9 @@ def python2java(file):
 		pythonCode = pythonFile.read()
 		pythonFile.close()
 
-		save_path = "server/outputProcessing/outputFiles"
+		save_path = "/server/outputProcessing/outputFiles/outputFile"
 		javaMainClass = "outputFile"
-		completeName = os.path.join(save_path, javaMainClass) + ".java"
+		completeName = ROOT_DIR + save_path + ".java"
 
 		javaFile = open(completeName, "w")
 		javaFile.truncate(0) # clear the previous file contents

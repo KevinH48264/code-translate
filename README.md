@@ -35,8 +35,9 @@ Both automatically update upon saved changes to relevant files.
 ```bash
 npm run build # create the build file
 
-heroku login # sign into heroku
-heroku git:remote -a code-translate # codetranslateapp is the dev server, code-translate-app / code-translate is the production server
+# Don't need the below steps because heroku is set up for auto-deploying the main branch
+# heroku login # sign into heroku
+# heroku git:remote -a code-translate # codetranslateapp is the dev server, code-translate-app / code-translate is the production server
 
 git add .
 git commit -m <message>
