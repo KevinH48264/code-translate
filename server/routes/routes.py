@@ -13,6 +13,7 @@ routes = Blueprint('routes', __name__, static_folder='build/', template_folder="
 
 @routes.route('/', methods=['GET'])
 def home():
+    print("TEST1")
     return render_template('index.html')
 
 @routes.errorhandler(404)

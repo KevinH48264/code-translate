@@ -1,0 +1,6 @@
+build:
+  docker:
+    # web: Dockerfile.frontend
+    web: Dockerfile.server
+run:
+  web: gunicorn app:app # for production

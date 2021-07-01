@@ -1,0 +1,36 @@
+# DOCKERFILE FOR SERVER
+
+FROM ubuntu:focal
+ 
+RUN apt-get update -y
+RUN apt-get install -y git curl python3 python3-pip python-clang libmysqlclient-dev 
+# RUN apt-get install npm 
+ 
+# Requirements for Transcoder
+# RUN pip install torch torchvision
+# RUN pip install numpy Apex fastBPE libclang submitit six sacrebleu=="1.2.11"
+ 
+WORKDIR /app
+ 
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=development
+ENV FLASK_DEBUG=1
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
+
+# Frontend code
+# COPY ./package.json ./
+# COPY ./yarn.lock ./
+# RUN npm install yarn
+# RUN yarn install --legacy-peer-deps
+# RUN npm run build
+
+COPY build /app/build
+
+COPY . .
+ 
+EXPOSE 5000
+
+# Automatically start backend server
+CMD [ "python3", "app.py"]
+# CMD [ "gunicorn", "-b", "0.0.0.0:5000", "app:app" ]
