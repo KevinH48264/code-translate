@@ -1,17 +1,20 @@
 version: "3"
 services:
-  frontend:
-    build:
-        context: .
-        dockerfile: Dockerfile.frontend
-    ports:
-      - 3000:3000
-    volumes:
-      - ./src:/usr/src/app/src
-      - /usr/src/app/node_modules # using volume overrides the image's file
-    depends_on:
-      - server
+  ### Don't need frontend now because you can use the Flask web server that serves frontend files
+  ### If you want to, make sure to go to package.json and set "proxy": "http://<Dockerfile.server_service_name>:5000"
+  # frontend:
+  #   build:
+  #       context: .
+  #       dockerfile: Dockerfile.frontend
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./src:/usr/src/app/src
+  #     - /usr/src/app/node_modules # using volume overrides the image's file
+  #   depends_on:
+  #     - server
 
+  ### Go to localhost:5000 to view the local version
   server:
     build:
         context: .

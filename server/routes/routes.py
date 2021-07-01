@@ -25,7 +25,6 @@ Request data provides: {'tTo': 'python', 'tFrom': 'java', 'inputCode': 'print("H
 """
 @routes.route('/translate', methods=['POST'])
 def translate():
-    print("Does this update in real time?")
     try:
         data = request.get_json()
         if data is None:
