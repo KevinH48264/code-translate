@@ -3,4 +3,4 @@ build:
     # web: Dockerfile.frontend
     web: Dockerfile.server
 run:
-  web: gunicorn app:app
+  web: gunicorn app:app # for production

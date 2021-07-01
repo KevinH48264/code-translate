@@ -1,28 +1,26 @@
 version: "3"
 services:
-  # frontend:
-  #   build:
-  #       context: .
-  #       dockerfile: Dockerfile.frontend
-  #   ports:
-  #     - "3000:3000"
-  #   expose: 
-  #     - "3000"
-  #   volumes:
-  #     - .:/usr/src/app
-  #     - /usr/src/app/node_modules # using volume overrides the image's file
-  #   depends_on:
-  #     - server
+  frontend:
+    build:
+        context: .
+        dockerfile: Dockerfile.frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/usr/src/app/src
+      - /usr/src/app/node_modules # using volume overrides the image's file
+    depends_on:
+      - server
 
-  web:
+  server:
     build:
         context: .
         dockerfile: Dockerfile.server
     ports:
       - 5000:5000
-    expose:
-      - 5000
     volumes:
-      - .:/app
-    env_file:
-      - ./.env.dev
+      - ./server:/app/server # only check for changes in server otherwise the volume is too large
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+      - FLASK_DEBUG=1

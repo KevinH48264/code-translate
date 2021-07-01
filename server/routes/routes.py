@@ -13,6 +13,7 @@ routes = Blueprint('routes', __name__, static_folder='build/', template_folder="
 
 @routes.route('/', methods=['GET'])
 def home():
+    print("TEST1")
     return render_template('index.html')
 
 @routes.errorhandler(404)
@@ -24,6 +25,7 @@ Request data provides: {'tTo': 'python', 'tFrom': 'java', 'inputCode': 'print("H
 """
 @routes.route('/translate', methods=['POST'])
 def translate():
+    print("Does this update in real time?")
     try:
         data = request.get_json()
         if data is None:
