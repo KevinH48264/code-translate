@@ -1,0 +1,27 @@
+# DOCKERFILE FOR SERVER
+
+FROM ubuntu:focal
+ 
+RUN apt-get update -y
+RUN apt-get install -y git curl python3 python3-pip python-clang libmysqlclient-dev
+ 
+# Requirements for Transcoder
+# RUN pip install torch torchvision
+# RUN pip install numpy Apex fastBPE libclang submitit six sacrebleu=="1.2.11"
+ 
+WORKDIR /app
+ 
+ENV FLASK_APP=app.py
+ 
+ENV FLASK_ENV=development
+ 
+COPY ./requirements.txt .
+ 
+RUN pip install -r requirements.txt
+
+COPY . .
+ 
+EXPOSE 5000
+
+# Automatically start backend server
+CMD [ "python3", "app.py" ]

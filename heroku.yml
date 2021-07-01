@@ -1,0 +1,4 @@
+build:
+  docker:
+    frontend: Dockerfile.frontend
+    server: Dockerfile.server
