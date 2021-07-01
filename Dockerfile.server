@@ -3,7 +3,8 @@
 FROM ubuntu:focal
  
 RUN apt-get update -y
-RUN apt-get install -y git curl python3 python3-pip python-clang libmysqlclient-dev
+RUN apt-get install -y git curl python3 python3-pip python-clang libmysqlclient-dev 
+# RUN apt-get install npm 
  
 # Requirements for Transcoder
 # RUN pip install torch torchvision
@@ -12,17 +13,26 @@ RUN apt-get install -y git curl python3 python3-pip python-clang libmysqlclient-
 WORKDIR /app
  
 ENV FLASK_APP=app.py
- 
 ENV FLASK_ENV=development
- 
 COPY ./requirements.txt .
- 
 RUN pip install -r requirements.txt
+
+# Frontend code
+# COPY ./package.json ./
+# COPY ./yarn.lock ./
+# RUN npm install yarn
+# RUN yarn install --legacy-peer-deps
+# RUN npm run build
+
+COPY build /app/build
 
 COPY . .
  
 EXPOSE 5000
 
+RUN ls /app
+
 # Automatically start backend server
-CMD [ "python3", "app.py"]
+# CMD [ "python3", "app.py"]
 # CMD [ "gunicorn", "-b", "0.0.0.0:5000", "app:app" ]
+CMD [ "gunicorn", "app:app" ]
