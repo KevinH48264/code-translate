@@ -3,19 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from server.init_db import init_db
 import os
-import logger
 
 init_db() # need to initialize the database first
 
 app = Flask(__name__, static_folder='build/', template_folder="build/", static_url_path='/')
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-
-app.logger.debug('this is a DEBUG message')
-app.logger.info('this is an INFO message')
-app.logger.warning('this is a WARNING message')
-app.logger.error('this is an ERROR message')
-app.logger.critical('this is a CRITICAL msg')
 
 from server.routes.routes import routes
 app.register_blueprint(routes)
