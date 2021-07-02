@@ -61,3 +61,7 @@ server/outputProcessing/outputFiles/outputFile.py
 server/outputProcessing/outputFiles/outputFile.java
 
 server/java2pythontest
+server/TransCoder
+
+# Transcoder files
+model_1.pth

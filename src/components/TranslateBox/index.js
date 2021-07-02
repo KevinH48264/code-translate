@@ -54,7 +54,7 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
                     <TranslateBoxFrom style={{ borderRight: '1px solid rgba(0, 0, 0, 0.12)' }}>
                         <Editor
                             className="container__editor"
-                            placeholder="Type some code…"
+                            placeholder="Enter code"
                             value={inputCode}
                             onValueChange={(inputCode) => setInputCode(inputCode)}
                             highlight={(inputCode) => inputCode}
@@ -69,7 +69,7 @@ const TranslateBox = ({ tFrom, setTFrom, tTo, setTTo, inputCode, setInputCode, o
                     <TranslateBoxTo>
                         <Editor
                             className="container__editor"
-                            placeholder="Only Python to Java is currently supported. Please check back later this month for Java to Python. Thanks for visiting!"
+                            placeholder="Code Translate is still in beta mode, but feel free to give it a go and leave feedback! Thanks for visiting!"
                             value={outputCode}
                             onValueChange={(outputCode) => setOutputCode(outputCode)}
                             highlight={(outputCode) => outputCode}
