@@ -3,6 +3,9 @@ from server.inputProcessing.inputProcessing import createInputFile
 from server.python2java.python2java import python2java
 from server.outputProcessing.outputProcessing import readOutputFile
 from server.modelsDB.FeedbackDB import Feedback, addFeedback, getFeedback
+# from server.TransCoder.translate import FB_translate
+from env import ROOT_DIR
+from translate import FB_translate
 
 # class Code():
 #     def __init__(self, text="", language="python"):
@@ -13,7 +16,6 @@ routes = Blueprint('routes', __name__, static_folder='build/', template_folder="
 
 @routes.route('/', methods=['GET'])
 def home():
-    print("TEST1")
     return render_template('index.html')
 
 @routes.errorhandler(404)
@@ -31,20 +33,29 @@ def translate():
             return jsonify(**{'message': 'No data found'})
         print(data)
 
+        # LOOK INTO USING YIELD TO YIELD A LOADING OPTION
         if data:
+            # Read arguments to function
             tTo = data['tTo']
             tFrom = data['tFrom']
             inputCode = data['inputCode']
 
+            # Input file creation
             print("inputCode: ", inputCode)
             print("...Creating input file ...")
             inputFile = createInputFile(inputCode, tFrom) # create input file
             print("Input file created!")
+            print(inputFile)
 
-            if tFrom == 'python' and tTo == 'java':
-                print("...Creating output file...")
+            # Output code creation
+            print("...Creating output file...")
+            if tFrom == tTo:
+                outputFile = inputFile
+            elif tFrom == 'python' and tTo == 'java':
                 outputFile = python2java(inputFile)
-                print("Output file created!")
+            elif tFrom == 'java' and tTo == 'python':
+                outputFile = FB_translate("model_1.pth", "java", "python") # FB_translate(model_path, src_lang, tgt_lang)
+            print("Output file created!")
 
             outputCode = readOutputFile(outputFile) # convert outputfile to output code
             print("outputCode: ", outputCode)

@@ -1,3 +1,6 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.6.0+cpu
+torchvision==0.7.0+cpu
 botocore==1.20.95
 cement==2.8.2
 certifi==2021.5.30
