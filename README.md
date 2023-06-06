@@ -1,5 +1,5 @@
 # Code Translate
-This is the code repo for Code Translate | June 2021
+This is the code repo for Code Translate: Google Translate for Coding Languages | June 2021
 
 ## Installation
 Check out this Getting Started doc first: https://docs.google.com/document/d/16Qs5V0TVBTqcahy2TbNnZyZ_6aW2MfyZp7Iux99KNBU/edit?usp=sharing
